@@ -2,6 +2,7 @@ import React from "react"
 import { Link, graphql } from "gatsby"
 
 import Layout from "../components/layout"
+import "../styles/global.css"  
 
 const IndexPage = ({data}) => (
   <Layout>
@@ -11,11 +12,14 @@ const IndexPage = ({data}) => (
           <h2>
             <Link to={`/${document.node.id}`}>{document.node.Title}</Link>
           </h2>
-          <p>{document.node.Content}</p>
+          <ReactMarkdown 
+            source={document.node.Content.substring(0,500).concat("...")}
+            className="indexArticle" />
+
+          <Link to={`/${document.node.id}`}>Read more</Link>
         </li>
       ))}
     </ul>
-    <Link to="/page-2/">Go to page 2</Link>
   </Layout>
 )
 
