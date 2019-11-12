@@ -17,7 +17,7 @@ module.exports = {
       resolve: `gatsby-source-strapi`,
       options: {
         apiURL: process.env.DEPLOY_URL
-          ? "https://radiant-fortress-58906.herokuapp.com/"
+          ? "https://radiant-fortress-58906.herokuapp.com"
           : "http://localhost:1337",
         queryLimit: 1000,
         contentTypes: [`article`, `user`]
